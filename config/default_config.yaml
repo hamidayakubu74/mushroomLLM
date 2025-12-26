@@ -1,0 +1,31 @@
+experiment:
+  name: "myco_learning_v1"
+  seed: 42
+  max_steps: 1000
+  save_interval: 100
+
+hardware:
+  port: "COM3"
+  baud_rate: 115200
+  timeout: 0.1
+  safety_limits:
+    max_voltage: 5.0  # Volts
+    max_current: 0.01 # Amps
+
+stimulation:
+  min_frequency: 1.0  # Hz
+  max_frequency: 100.0 # Hz
+  min_amplitude: 0.0
+  max_amplitude: 3.3
+  pulse_width: 0.01 # seconds
+
+rl_agent:
+  algorithm: "PPO"
+  learning_rate: 0.0003
+  gamma: 0.99
+  batch_size: 64
+  n_epochs: 10
+
+environment:
+  observation_window: 50 # Number of past samples to include in state
+  target_response_pattern: "sinusoidal" # For reward calculation
